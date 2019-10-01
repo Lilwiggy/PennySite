@@ -85,7 +85,7 @@
             <h1 style="color: white" id="username"></h1>
             <h2 style="color: white" id="credits">Credits:</h2>
             <h2 style="color: white" id="cookies">Cookies:</h2>
-            <h2 style="color: white" id="xp">XP:<XP:/h2>
+            <h2 style="color: white" id="xp">XP:</h2>
             <h2 style="color: white" id="level">Level:</h2>
             <h2 style="color: white" id="used">Commands used:</h2>
             </div>
@@ -125,7 +125,7 @@
             else if (e === 'id')
               document.getElementById(`avatar`).src = `https://d.lu.je/avatar/${data.user[e]}?size=512`;
             else
-              document.getElementById(e).innerHTML = data.user[e];
+              document.getElementById(e).innerHTML += " " + data.user[e];
           });
         }).catch(() => {
           document.body.style.display = "";
