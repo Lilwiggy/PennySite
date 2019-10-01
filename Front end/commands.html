@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Penny</title>
+    <meta charset="utf-8">
+    <meta property=og:url content=https://penny.wiggy.dev>
+    <meta property=og:title content="Pennybot for Discord">
+    <meta property=og:description content="View commands and what they do.">
+    <meta property=og:image content=https://d.lu.je/avatar/309531399789215744?size=512>
+    <meta name=theme-color content=#80ff8a>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+            nav a {
+        color: white;
+      }
+      nav a:hover {
+        color: white;
+      }
+      div.dropdown-menu a.dropdown-item {
+        color: white;
+      }
+      div.dropdown-menu a.dropdown-item:hover {
+        color: white;
+        background-color: #4d4d4d;
+      }
+    </style>
+</head>
+
+<body onload="setUser()" style="background-color: #191818">
+        <nav class="navbar navbar-expand-lg" style="background-color: #191818">
+                <a class="navbar-brand" href="/">Penny</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+      
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More things
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #363636;">
+                        <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
+                        <a class="dropdown-item" href="/commands">Commands</a>
+                        <a class="dropdown-item" href="/devs">Devs</a>
+                        <a class="dropdown-item" href="/donate">Donate</a>
+                        <a class="dropdown-item" href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798">Invite</a>
+                        <a class="dropdown-item" href="/bug">Report a bug</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="nav justify-content-end">
+                      <li class="nav-item" id="login">
+                        <a class="nav-link active" href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds">Login</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        </ul>
+                </div>
+              </nav>
+    <div class="container-fluid">
+            <div class="row">
+                    <div class="col-xs-4 col-md-4 offset-md-4">
+                        <h1 style="color: white">All commands can be run when you edit a message</h1>
+                        <img src="https://i.imgur.com/jMZcIps.gif" style="width: 400px; height: 400px;">
+                    </div>
+                </div>
+        <table class="table table-hover">
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Avatar</h1>
+                        <h3 style="color: white">Shows your avatar or someone else's avatar.</h3>
+                        <img src="https://i.imgur.com/MO0x0hj.gif" style="width: 400px; height: 400px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Backgrounds</h1>
+                        <h3 style="color: white">Shows what backgrounds you own</h3>
+                        <img src="https://i.imgur.com/hPiE5C8.gif" style="width: 400px; height: 420px;">
+                        <!-- ayy lmao -->
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Ban</h1>
+                        <h3 style="color: white">Ban a user for being naughty</h3>
+                        <img src="https://i.imgur.com/U037JcG.gif" style="width: 400px; height: 450px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Blacklist</h1>
+                        <h3 style="color: white">Blacklist a role or roles from the edit command</h3>
+                        <img src="https://i.imgur.com/HFVFITy.gif" style="width: 400px; height: 450px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Color</h1>
+                        <h3 style="color: white">Show your role color or someone else's role color.<br>Or you can view a color when providing a hex color</h3>
+                        <img src="https://i.imgur.com/GWM2rsl.gif" style="width: 400px; height: 450px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Complain</h1>
+                        <h3 style="color: white">Complain about the bot. But why would you? <s>Why do you hate me?</s> </h3>
+                        <img src="https://i.imgur.com/ZAI3VSY.gif" style="width: 400px; height: 450px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Cookie</h1>
+                        <h3 style="color: white">Give someone a cookie</h3>
+                        <img src="https://i.imgur.com/dNVRFT3.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Credits</h1>
+                        <h3 style="color: white">View how many credits you have</h3>
+                        <img src="https://i.imgur.com/04apvQs.gif" style="width: 400px; height: 570px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Daily</h1>
+                        <h3 style="color: white">Get your daily credits here.<br>You can also give someone else your daily credits to receive more</h3>
+                        <img src="https://i.imgur.com/c3ldq4k.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Define</h1>
+                        <h3 style="color: white">Define things from Urban Dictionary</h3>
+                        <img src="https://i.imgur.com/mmzY4OK.gif" style="width: 400px; height: 480px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Delete</h1>
+                        <h3 style="color: white">Deletes X number of messages</h3>
+                        <img src="https://i.imgur.com/xSBAQ0k.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Disable</h1>
+                        <h3 style="color: white">Disable level up messages or mod logs.<br>//disable mod logs<br>//disable levels</h3>
+                        <img src="https://i.imgur.com/NZZj6jX.gif" style="width: 400px; height: 480px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                        <h1 style="color: white">Docs</h1>
+                        <h3 style="color: white">A link to the docs for Penny.<br><a href="https://github.com/Lilwiggy/Penny"><s>Pssst. It's right here</s></a></h3>
+                        <img src="https://i.imgur.com/plxSA43.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                        <h1 style="color: white">Edit</h1>
+                        <h3 style="color: white">Edit a role's color assuming you have the role and role edits are enabled and the role is not blacklisted</h3>
+                        <img src="https://i.imgur.com/M0I1rbV.gif" style="width: 400px; height: 480px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                            <h1 style="color: white">Emote</h1>
+                            <h3 style="color: white">Shows how many times an emote has been used in the server</h3>
+                            <img src="https://i.imgur.com/erQ9c4t.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                            <h1 style="color: white">Enable</h1>
+                            <h3 style="color: white">Enables role edits or mod logs.<br>//enable edits<br>//enable mod logs</h3>
+                            <img src="https://i.imgur.com/llPrvUw.gif" style="width: 400px; height: 480px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                <div class="row">
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                            <h1 style="color: white">Gamble</h1>
+                            <h3 style="color: white">Gamble your credits away</h3>
+                            <img src="https://i.imgur.com/NnJVsv9.gif" style="width: 400px; height: 480px;">
+                    </div>
+                    <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                            <h1 style="color: white">Help</h1>
+                            <h3 style="color: white">Sends the command info</h3>
+                            <img src="https://i.imgur.com/PqED8Qi.gif" style="width: 400px; height: 480px;">
+                    </div>
+                </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Highfive</h1>
+                                <h3 style="color: white">Give someone a highfive!</h3>
+                                <img src="https://i.imgur.com/FwgSXpy.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">HT</h1>
+                                <h3 style="color: white">A game of heads or tails</h3>
+                                <img src="https://i.imgur.com/uBYAvQw.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Hug</h1>
+                                <h3 style="color: white">Give someone a hug!</h3>
+                                <img src="https://i.imgur.com/5Bla3RA.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Inspire</h1>
+                                <h3 style="color: white">Get inspired</h3>
+                                <img src="https://i.imgur.com/OfqBYi3.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Invite</h1>
+                                <h3 style="color: white">Gives you an invite link for Penny</h3>
+                                <img src="https://i.imgur.com/6Yo3mqY.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Kick</h1>
+                                <h3 style="color: white">Kick a user for being naughty</h3>
+                                <img src="https://i.imgur.com/QV9vGYc.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Listening</h1>
+                                <h3 style="color: white">Tells you what you're listening to on spotify</h3>
+                                <img src="https://i.imgur.com/Aetg3Ok.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">MIR</h1>
+                                <h3 style="color: white">Make it rain credits with the first user to type //grab to win them</h3>
+                                <img src="https://i.imgur.com/n30I4lB.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">NSFW</h1>
+                                <h3 style="color: white">( ͡° ͜ʖ ͡°)</h3> <!-- Oppai! -->
+                                <img src="https://i.imgur.com/XZR9Ril.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">OSU!</h1>
+                                <h3 style="color: white">Gives you OSU! status for a user providing an OSU! username</h3>
+                                <img src="https://i.imgur.com/rPEVzH0.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Parrot</h1>
+                                <h3 style="color: white">Gives you a random parrot</h3>
+                                <img src="https://i.imgur.com/ltpfE5n.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Profile</h1>
+                                <h3 style="color: white">Shows your Penny profile</h3>
+                                <img src="https://i.imgur.com/pyrkkfD.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Random avatar</h1>
+                                <h3 style="color: white">Shows a random person in the server's avatar</h3>
+                                <img src="https://i.imgur.com/RMuhROr.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Server info</h1>
+                                <h3 style="color: white">Shows the Server info</h3>
+                                <img src="https://i.imgur.com/CXAZvPP.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Set</h1>
+                                <h3 style="color: white">Set the starboard, welcome channel, welcome message, leave message, and prefix.
+                                    <br>//set starboard<br>//set welcome channel<br>//set welcome message<br>//set leave message<br>//set prefix</h3>
+                                <img src="https://i.imgur.com/tHTEywp.gif" style="width: 400px; height: 480px;"> <!-- Christ that was long -->
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Set background</h1>
+                                <h3 style="color: white">Sets your background for your profile</h3>
+                                <img src="https://i.imgur.com/XeDIXMm.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Set emblem</h1>
+                                <h3 style="color: white">Sets your emblem on your Penny profile</h3>
+                                <img src="https://i.imgur.com/6OyJ6pN.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Shop info</h1>
+                                <h3 style="color: white">The shop info for all the things you can buy</h3>
+                                <img src="https://i.imgur.com/LLJ6NTi.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Slap</h1>
+                                <h3 style="color: white">Slap a user</h3>
+                                <img src="https://i.imgur.com/6qNGdmD.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">SPYT</h1>
+                                <h3 style="color: white">Gives a youtube link for the song you're listening to on spotify</h3>
+                                <img src="https://i.imgur.com/2i47jMe.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Stats</h1>
+                                <h3 style="color: white">View some of Penny's stats</h3>
+                                <img src="https://i.imgur.com/pGhm3x2.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Suggest</h1>
+                                <h3 style="color: white">Suggest a waifu or NSFW image to be added to the respective command.<br>//suggest waifu<br>//suggest nsfw</h3>
+                                <img src="https://i.imgur.com/7y3LPDg.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Tag</h1>
+                                <h3 style="color: white">Create a tag or view tag info or delete a tag.<br>//help tag</h3>
+                                <img src="https://i.imgur.com/htfjgHx.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Tags</h1>
+                                <h3 style="color: white">View the tags you own</h3>
+                                <img src="https://i.imgur.com/m7E3c7V.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Top</h1>
+                                <h3 style="color: white">The top 10 people with highest levels</h3>
+                                <img src="https://i.imgur.com/tZiUuO8.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Topic</h1>
+                                <h3 style="color: white">A conversation starter</h3>
+                                <img src="https://i.imgur.com/tEI7QYG.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Waifu</h1>
+                                <h3 style="color: white">A random waifu</h3>
+                                <img src="https://i.imgur.com/OnxIyXD.gif" style="width: 400px; height: 480px;">
+                        </div>
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-1">
+                                <h1 style="color: white">Weeb</h1>
+                                <h3 style="color: white">Disables/enables anime gifs on the hug command respectively.<br>//weeb off<br>//weeb on</h3>
+                                <img src="https://i.imgur.com/NjCz5aB.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+            <tr class="success">
+                    <div class="row">
+                        <div class="col-xs-5 offset-xs-1 col-md-4 offset-md-2">
+                                <h1 style="color: white">Welcome</h1>
+                                <h3 style="color: white">Disables/enables welcome messages respectively.<br>//welcome off<br>//welcome on</h3>
+                                <img src="https://i.imgur.com/PRm5P1P.gif" style="width: 400px; height: 480px;">
+                        </div>
+                    </div>
+            </tr>
+    </div>
+    </table>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function setUser() {
+            if (localStorage.getItem('logged') === 'true')
+              document.getElementById('login').outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
+        }
+    </script>
+</body>
+
+</html>

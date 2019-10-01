@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteRule ^bug bug.html [L]
+RewriteRule ^commands commands.html [L]
+RewriteRule ^devs devs.html [L]
+RewriteRule ^error error.html [L]
+RewriteRule ^index index.html [L]
+RewriteRule ^backgrounds backgrounds.html [L]
+RewriteRule ^donate donate.html [L]
+
+ErrorDocument 404 /error
+ErrorDocument 403 /error
