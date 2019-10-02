@@ -42,39 +42,39 @@
     </style>
   </head>
   <body onload="setUser()" style="background-color: #191818">
-      <nav class="navbar navbar-expand-lg" style="background-color: #191818">
-          <a class="navbar-brand" href="/">Penny</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #191818">
+      <a class="navbar-brand" href="/">Penny</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  More things
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #363636;">
-                  <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
-                  <a class="dropdown-item" href="/commands">Commands</a>
-                  <a class="dropdown-item" href="/devs">Devs</a>
-                  <a class="dropdown-item" href="/donate">Donate</a>
-                  <a class="dropdown-item" href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798">Invite</a>
-                  <a class="dropdown-item" href="/bug">Report a bug</a>
-                </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+              More things
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #363636;">
+              <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
+              <a class="dropdown-item" href="/commands">Commands</a>
+              <a class="dropdown-item" href="/devs">Devs</a>
+              <a class="dropdown-item" href="/donate">Donate</a>
+              <a class="dropdown-item" href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798">Invite</a>
+              <a class="dropdown-item" href="/bug">Report a bug</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+            <li class="nav-item" id="login">
+              <a class="nav-link active" href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
               </li>
-            </ul>
-            <ul class="nav justify-content-end">
-                <li class="nav-item" id="login">
-                  <a class="nav-link active" href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
-                  </li>
-                  </ul>
-          </div>
-        </nav>
+              </ul>
+      </div>
+    </nav>
     <div class="container-fluid">
         <br>
         <br>
