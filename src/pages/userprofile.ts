@@ -11,18 +11,28 @@ exports.run = async (
 ) => {
   // Check your profile here
   let token = req.headers.authorization;
-  if (!token || token === null) {
-    fs.readFile(`./pages/error.html`, `utf-8`, (e, result) => {
-      let body = result;
-      body = replaceItems(['{{error}}'], ["You're not logged in!"], body);
-      return body;
-    });
+  console.log(token);
+  if (!token || token === 'null') {
+    let body = await fs.promises.readFile(`./pages/error.html`, 'utf-8');
+    body = replaceItems(['{{error}}'], ["You're not logged in!"], body);
+    return body;
   }
   let user = await con.manyOrNone({
     text:
       'SELECT background, xp, next, level, used, credits, cookies, user_id FROM users WHERE token = $1',
     values: [token],
   });
+  if (user.length < 1) {
+    let body = await fs.promises.readFile(`./pages/error.html`, 'utf-8');
+    body = replaceItems(
+      ['{{error}}'],
+      [
+        'I could not fund that user in my database. Try talking to the bot on Discord :D',
+      ],
+      body
+    );
+    return body;
+  }
   let id = user[0].user_id;
   if (user.length === 0 || !id) {
     fs.readFile(`./error.html`, `utf-8`, (e, result) => {
