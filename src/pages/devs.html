@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Penny</title>
+    <meta charset="utf-8" />
+    <meta property=og:url content=https://penny.wiggy.dev>
+    <meta property="og:title" content="Pennybot for Discord" />
+    <meta
+      property="og:description"
+      content="Check out the people who worked on Penny!"
+    />
+    <meta property=og:image
+    content=https://d.lu.je/avatar/232614905533038593?size=512>
+    <meta name="theme-color" content="#80ff8a" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/front/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      nav a {
+        color: white;
+      }
+      nav a:hover {
+        color: white;
+      }
+      div.dropdown-menu a.dropdown-item {
+        color: white;
+      }
+      div.dropdown-menu a.dropdown-item:hover {
+        color: white;
+        background-color: #4d4d4d;
+      }
+    </style>
+  </head>
+  <body onload="setUser()" style="background-color: #191818;">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #191818;"
+    >
+      <a class="navbar-brand" href="/">Penny</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="color: white;"
+            >
+              More things
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdown"
+              style="background-color: #363636;"
+            >
+              <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
+              <a class="dropdown-item" href="/commands">Commands</a>
+              <a class="dropdown-item" href="/devs">Devs</a>
+              <a class="dropdown-item" href="/donate">Donate</a>
+              <a
+                class="dropdown-item"
+                href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798"
+                >Invite</a
+              >
+              <a class="dropdown-item" href="/bug">Report a bug</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <li class="nav-item" id="login">
+            <a
+              class="nav-link active"
+              href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="col-xs-1 offset-xs-1 col-md-6 offset-md-5">
+        <a href="https://twitter.com/lilwiggy123"
+          ><img
+            src="https://d.lu.je/avatar/232614905533038593?size=512"
+            class="rounded-circle"
+            style="width: 300px; height: 300px;"
+        /></a>
+        <div class="col-xs-4 offset-xs-1 col-md-5 offset-md-1">
+          <h1 style="color: white;">Lilwiggy</h1>
+        </div>
+      </div>
+      <br />
+      <div class="col-xs-3 pull-xs-1 col-md-3 offset-md-5">
+        <h3 style="color: white;">
+          My name is John "Lilwiggy" Wiggins. I coded the bot all by myself. I
+          am a 18 year old aspiring film maker and programmer. You can follow me
+          on <a href="https://twitter.com/Lilwiggy">twitter</a> if you want. Not
+          really much else to say. Please enjoy the bot. Check out the
+          <a href="https://github.com/Lilwiggy/Penny">GitHub</a> if ya want.
+        </h3>
+        <br />
+        <div class="col-xs-1 offset-xs-1 col-md-5 offset-md-2">
+          <h2 style="color: white;">Contributors</h2>
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-2">
+          <img
+            src="https://d.lu.je/avatar/477082035580829697?size=512"
+            class="rounded-circle"
+            style="width: 100px; height: 100px;"
+          />
+          <h3 style="color: white;">Uninvited</h3>
+        </div>
+        <div class="col">
+          <img
+            src="https://d.lu.je/avatar/87600987040120832?size=512"
+            class="rounded-circle"
+            style="width: 100px; height: 100px;"
+          />
+          <h3 style="color: white;">mei</h3>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/front/js/bootstrap.min.js"></script>
+    <script>
+      function setUser() {
+        if (localStorage.getItem('logged') === 'true')
+          document.getElementById(
+            'login'
+          ).outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
+      }
+    </script>
+  </body>
+</html>
