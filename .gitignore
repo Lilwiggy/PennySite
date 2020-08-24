@@ -1,0 +1,18 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
+
+# Dependencies n such
+node_modules
+
+# Ignore the TS builds
+src/out/**/*
+
+# Ignore configs
+config.ts

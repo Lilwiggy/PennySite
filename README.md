@@ -1,4 +1,5 @@
 # PennySite
+
 The website for Penny
 
-This is a very unfinished finished version of the website
+This has been ported to TypeScript recently and is still in development.

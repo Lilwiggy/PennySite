@@ -10,7 +10,7 @@
     <meta name=theme-color content=#80ff8a>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/front/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,7 +120,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/front/js/bootstrap.min.js"></script>
     <script>
             function setUser() {
               if (localStorage.getItem('logged') === 'true')
@@ -134,7 +134,7 @@
                     let backgrounds = [];
                             var d = "";
                             var search = new URLSearchParams(window.location.search).get('cat');
-                  $.getJSON('/js/shop.json' , {
+                  $.getJSON('/front//js/shop.json' , {
                     format: "json"
                   })
                     .done(function( data ) {
@@ -155,7 +155,7 @@
                             d += document.getElementById("jeff").innerHTML + `
                             <div class="card-group">
                     <div class="card">
-                      <img class="card-img-top" src="/assets/backgrounds/${g}.png">
+                      <img class="card-img-top" src="/front//assets/backgrounds/${g}.png">
                       <div class="card-body">
                         <h5 class="card-title">${g}</h5>
                         <p class="card-text">Costs: ${item.price} credits.</p>
@@ -166,7 +166,7 @@
                           } else {
                         d += document.getElementById("jeff").innerHTML + `
                         <div class="card">
-                      <img class="card-img-top" src="/assets/backgrounds/${g}.png">
+                      <img class="card-img-top" src="/front//assets/backgrounds/${g}.png">
                       <div class="card-body">
                         <h5 class="card-title">${g}</h5>
                         <p class="card-text">Costs: ${item.price} credits.</p>
@@ -188,7 +188,7 @@
                               d += document.getElementById("jeff").innerHTML + `
                             <div class="card-group">
                     <div class="card">
-                      <img class="card-img-top" src="/assets/backgrounds/${item.name}.png">
+                      <img class="card-img-top" src="/front//assets/backgrounds/${item.name}.png">
                       <div class="card-body">
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">Costs: ${item.price} credits.</p>
@@ -199,7 +199,7 @@
                             } else {
                               d += document.getElementById("jeff").innerHTML + `
                         <div class="card">
-                      <img class="card-img-top" src="/assets/backgrounds/${item.name}.png">
+                      <img class="card-img-top" src="/front/assets/backgrounds/${item.name}.png">
                       <div class="card-body">
                         <h5 class="card-title">${item.name}</h5>
                         <p class="card-text">Costs: ${item.price} credits.</p>
@@ -232,7 +232,7 @@
                     headers: {
                       Authorization: localStorage.getItem('t')
                     },
-                    type: 'GET',
+                    type: 'POST',
                     dataType: 'json',
                     url: `/updatebackground?b=${bg}`,
                     success: function(data) {
