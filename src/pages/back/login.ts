@@ -1,6 +1,6 @@
 // updated to node-fetch cause nekocurl died too lazy to change name of variable
 import fetch from 'node-fetch';
-import { config } from '../config';
+import { config } from '../../config';
 import { Response, Request } from 'express';
 import url from 'url';
 import pgPromise from 'pg-promise';

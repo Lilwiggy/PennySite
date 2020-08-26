@@ -10,22 +10,22 @@ const pgp = pgPromise();
 const con: IBaseProtocol<{}> = pgp(
   `postgres://${config.sql.username}:${config.sql.password}@${config.sql.host}/${config.sql.db_name}`
 );
-fs.readdir('./pages', (err, res) => {
+fs.readdir('./pages/front', (err, res) => {
   res.forEach((page) => {
     if (!page.endsWith('.html')) return;
     app.get('/', (req, r) =>
-      r.sendFile(path.join(`${path.join(__dirname)}/../pages/index.html`))
+      r.sendFile(path.join(`${path.join(__dirname)}/../pages/front/index.html`))
     );
     app.get('/' + page.split('.')[0], (req, r) =>
-      r.sendFile(path.resolve(path.join(__dirname) + `/../pages/${page}`))
+      r.sendFile(path.resolve(path.join(__dirname) + `/../pages/front/${page}`))
     );
   });
 });
-fs.readdir('./out/pages', (err, res) => {
+fs.readdir('./out/pages/back', (err, res) => {
   res.forEach((page) => {
     if (!page.endsWith('.js')) return;
     try {
-      let props = require(`./pages/${page}`);
+      let props = require(`./pages/back/${page}`);
       switch (props.meta.type) {
         case 'get':
           app.get(`/${props.meta.name}`, async (req, r) => {
