@@ -10,7 +10,7 @@ const pgp = pgPromise();
 const con: IBaseProtocol<{}> = pgp(
   `postgres://${config.sql.username}:${config.sql.password}@${config.sql.host}/${config.sql.db_name}`
 );
-fs.readdir('./pages/front', (err, res) => {
+fs.readdir(path.join(`${path.join(__dirname)}/../pages/front`), (err, res) => {
   res.forEach((page) => {
     if (!page.endsWith('.html')) return;
     app.get('/', (req, r) =>
@@ -21,7 +21,7 @@ fs.readdir('./pages/front', (err, res) => {
     );
   });
 });
-fs.readdir('./out/pages/back', (err, res) => {
+fs.readdir(path.join(`${path.join(__dirname)}/pages/back`), (err, res) => {
   res.forEach((page) => {
     if (!page.endsWith('.js')) return;
     try {

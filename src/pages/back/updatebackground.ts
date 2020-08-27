@@ -3,8 +3,8 @@ import url from 'url';
 import fs from 'fs';
 import { Request, Response } from 'express';
 import pgPromise from 'pg-promise';
-import { items } from './../modules/shop';
-import { replaceItems } from '../modules/functions';
+import { items } from '../../modules/shop';
+import { replaceItems } from '../../modules/functions';
 exports.run = async (
   req: Request,
   res: Response,
@@ -19,7 +19,7 @@ exports.run = async (
     let bg = url.parse(req.url).query!.split(`b=`)[1];
     let token = req.headers.authorization;
     if (!token) {
-      fs.readFile(`./pages/error.html`, `utf-8`, (e, result) => {
+      fs.readFile(`./pages/front/error.html`, `utf-8`, (e, result) => {
         let body = result;
         body = replaceItems(['{{error}}'], ["You're not logged in!"], body);
         return body;

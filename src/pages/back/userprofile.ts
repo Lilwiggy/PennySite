@@ -1,9 +1,7 @@
-import fetch from 'node-fetch';
 import fs from 'fs';
-import { config } from './../config';
 import { Response, Request } from 'express';
 import pgPromise from 'pg-promise';
-import { replaceItems } from '../modules/functions';
+import { replaceItems, getUser } from '../../modules/functions';
 exports.run = async (
   req: Request,
   res: Response,
@@ -13,8 +11,14 @@ exports.run = async (
   let token = req.headers.authorization;
   console.log(token);
   if (!token || token === 'null') {
-    let body = await fs.promises.readFile(`./pages/error.html`, 'utf-8');
-    body = replaceItems(['{{error}}'], ["You're not logged in!"], body);
+    let body = await fs.promises
+      .readFile('../pages/front/error.html', 'utf-8')
+      .catch(console.error);
+    body = replaceItems(
+      ['{{error}}'],
+      ["You're not logged in!"],
+      body as string
+    );
     return body;
   }
   let user = await con.manyOrNone({
@@ -22,14 +26,17 @@ exports.run = async (
       'SELECT background, xp, next, level, used, credits, cookies, user_id FROM users WHERE token = $1',
     values: [token],
   });
+  console.log(user);
   if (user.length < 1) {
-    let body = await fs.promises.readFile(`./pages/error.html`, 'utf-8');
+    let body = await fs.promises
+      .readFile('../pages/front/error.html', 'utf-8')
+      .catch(console.error);
     body = replaceItems(
       ['{{error}}'],
       [
-        'I could not fund that user in my database. Try talking to the bot on Discord :D',
+        'I could not find that user in my database. Try talking to the bot on Discord :D',
       ],
-      body
+      body as string
     );
     return body;
   }
@@ -47,12 +54,7 @@ exports.run = async (
       return body;
     });
   }
-  let userFetch = await fetch(`https://discordapp.com/api/users/${id}`, {
-    headers: {
-      'Content-Type': 'text/json',
-      Authorization: `Bot ${config.bot_token}`,
-    },
-  }).then((u) => u.json());
+  let userFetch = await getUser(id);
   return {
     success: true,
     user: {
