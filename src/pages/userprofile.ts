@@ -37,6 +37,10 @@ exports.run = async (
       return body;
     });
   }
+  let cards = await con.manyOrNone({
+    text: 'SELECT * FROM cards WHERE owner_id = $1',
+    values: [id],
+  });
   let userFetch = await fetch(`https://discordapp.com/api/users/${id}`, {
     headers: {
       'Content-Type': 'text/json',
@@ -50,10 +54,11 @@ exports.run = async (
       username: userFetch.username,
       credits: user[0].credits,
       cookies: user[0].cookies,
-      xp: user[0].xp,
-      level: `${user[0].level}/${user[0].next}`,
+      xp: `${user[0].xp}/${user[0].next}`,
+      level: user[0].level,
       used: user[0].used,
       background: user[0].background,
+      cards: cards,
     },
   };
 };

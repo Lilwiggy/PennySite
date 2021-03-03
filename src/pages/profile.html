@@ -43,10 +43,25 @@
       }
     </style>
   </head>
-  <body onload="setUser()" style="background-color: #191818;">
+  <body onload="setUser()" style="background-color: #191818">
+    <div
+      class="bg"
+      style="
+        background-image: url('');
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(10px) brightness(30%);
+        min-height: 100vh;
+      "
+      id="bg"
+    ></div>
     <nav
       class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #191818;"
+      style="background-color: #191818"
     >
       <a class="navbar-brand" href="/">Penny</a>
       <button
@@ -72,14 +87,14 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              style="color: white;"
+              style="color: white"
             >
               More things
             </a>
             <div
               class="dropdown-menu"
               aria-labelledby="navbarDropdown"
-              style="background-color: #363636;"
+              style="background-color: #363636"
             >
               <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
               <a class="dropdown-item" href="/commands">Commands</a>
@@ -108,31 +123,37 @@
         </ul>
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container">
       <br />
       <br />
       <br />
       <br />
-      <div class="row">
-        <div class="col-md-3 offset-md-2 leftSide">
+      <div class="row justify-content-center">
+        <div class="col-4">
           <img
             src=""
             class="rounded-circle"
-            style="width: 200px; height: 200px;"
+            style="width: 200px; height: 200px"
             id="avatar"
           />
-          <div class="col-md-12">
-            <h1 style="color: white;" id="username"></h1>
-            <h2 style="color: white;" id="credits">Credits:</h2>
-            <h2 style="color: white;" id="cookies">Cookies:</h2>
-            <h2 style="color: white;" id="xp">XP:</h2>
-            <h2 style="color: white;" id="level">Level:</h2>
-            <h2 style="color: white;" id="used">Commands used:</h2>
-          </div>
+          <div class="row justify-content-around">
+            <div class="col-6">
+              <h1 style="color: white" id="username"></h1>
+            </div>
+        <div class="col-2"></div>
         </div>
-        <div class="col-md-3 offset-md-1">
-          <h1 style="color: white;">Your background:</h1>
-          <img src="" id="background" height="284px;" width="502px;" />
+        </div>
+          <div class="col-5">
+            <h2 style="color: white" id="level">Level:</h2>
+            <h2 style="color: white" id="xp">XP:</h2>
+            <h2 style="color: white" id="credits">Credits:</h2>
+            <h2 style="color: white" id="cookies">Cookies:</h2>
+            <h2 style="color: white" id="used">Commands used:</h2>
+            <h2 style="color: white" id="cards">Cards owned:</h2>
+            <h2 style="color: white">
+              View your cards <a href="" id="viewCards">here</a>
+            </h2>
+          </div>
         </div>
       </div>
     </div>
@@ -166,16 +187,24 @@
             return;
           }
           Object.keys(data.user).forEach((e) => {
-            console.log(e);
-            if (e === 'background')
+            if (e === 'background') {
               document.getElementById(
-                e
-              ).src = `/front/assets/backgrounds/${data.user[e]}.png`;
-            else if (e === 'id')
+                'bg'
+              ).style.backgroundImage = `url("/front/assets/backgrounds/${data.user[e]}.png")`;
+            } else if (e === 'id')
               document.getElementById(
                 `avatar`
               ).src = `https://d.lu.je/avatar/${data.user[e]}?size=512`;
-            else document.getElementById(e).innerHTML += ' ' + data.user[e];
+            else if (e === 'cards') {
+              let total = 0;
+              data.user[e].forEach((card) => {
+                total += card.count;
+              });
+              document.getElementById(e).innerHTML += ' ' + total;
+              document.getElementById(
+                'viewCards'
+              ).href = `/cards?user=${data.user['id']}`;
+            } else document.getElementById(e).innerHTML += ' ' + data.user[e];
           });
         })
         .catch(() => {
