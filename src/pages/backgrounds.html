@@ -1,255 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Penny</title>
-    <meta charset="utf-8">
-    <meta property=og:url content=https://penny.wiggy.dev>
-    <meta property=og:title content="Pennybot for Discord">
-    <meta property=og:description content="Need some backgrounds? Check here.">
-    <meta property=og:image content=https://d.lu.je/avatar/309531399789215744?size=512>
-    <meta name=theme-color content=#80ff8a>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/front/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+   <head>
+      <title>Penny</title>
+      <meta charset="utf-8">
+      <meta property=og:url content=https://penny.wiggy.dev>
+      <meta property=og:title content="Pennybot for Discord">
+      <meta property=og:description content="Need some backgrounds? Check here.">
+      <meta property=og:image content=https://d.lu.je/avatar/309531399789215744?size=512>
+      <meta name=theme-color content=#80ff8a>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="/front/css/bootstrap.min.css" rel="stylesheet">
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-    /*li:hover {
-      background-color: black;
-      }*/
-      nav a {
-        color: white;
-      }
-      nav a:hover {
-        color: white;
-      }
-      div.card {
-        background-color: #3a3838;
-        color: white;
-      }
-      div.dropdown-menu a.dropdown-item {
-        color: white;
-      }
-      div.dropdown-menu a.dropdown-item:hover {
-        color: white;
-        background-color: #4d4d4d;
-      }
-    </style>
-  </head>
-  <body onload="setUser()" style="background-color: #191818">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #191818">
-      <a class="navbar-brand" href="/">Penny</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
-              More things
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #363636;">
-              <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
-              <a class="dropdown-item" href="/commands">Commands</a>
-              <a class="dropdown-item" href="/devs">Devs</a>
-              <a class="dropdown-item" href="/donate">Donate</a>
-              <a class="dropdown-item" href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798">Invite</a>
-              <a class="dropdown-item" href="/bug">Report a bug</a>
-            </div>
-          </li>
-        </ul>
-        <ul class="nav justify-content-end">
-            <li class="nav-item" id="login">
-              <a class="nav-link active" href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-              </li>
-              </ul>
-      </div>
-    </nav>
-    <div class="container-fluid">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="row">
-          </div>
-          <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content" style="background-color: #2E2E2E">
+      <![endif]-->
+      <style>
+         /*li:hover {
+         background-color: black;
+         }*/
+         nav a {
+         color: white;
+         }
+         nav a:hover {
+         color: white;
+         }
+         div.card {
+         background-color: #3a3838;
+         color: white;
+         }
+         div.dropdown-menu a.dropdown-item {
+         color: white;
+         }
+         div.dropdown-menu a.dropdown-item:hover {
+         color: white;
+         background-color: #4d4d4d;
+         }
+      </style>
+   </head>
+   <body onload="setUser()" style="background-color: #191818">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #191818">
+         <a class="navbar-brand" href="/">Penny</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                  More things
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #363636;">
+                     <a class="dropdown-item" href="/backgrounds">Backgrounds</a>
+                     <a class="dropdown-item" href="/commands">Commands</a>
+                     <a class="dropdown-item" href="/devs">Devs</a>
+                     <a class="dropdown-item" href="/donate">Donate</a>
+                     <a class="dropdown-item" href="https://discordapp.com/oauth2/authorize?client_id=309531399789215744&scope=bot&permissions=36809798">Invite</a>
+                     <a class="dropdown-item" href="/bug">Report a bug</a>
+                  </div>
+               </li>
+            </ul>
+            <ul class="nav justify-content-end">
+               <li class="nav-item" id="login">
+                  <a class="nav-link active" href="https://discordapp.com/api/oauth2/authorize?client_id=309531399789215744&redirect_uri=https%3A%2F%2Fpenny.wiggy.dev%2Flogin&response_type=code&scope=identify%20guilds.join%20guilds">Login</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <br>
+         <br>
+         <br>
+         <br>
+         <div class="row">
+         </div>
+         <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content" style="background-color: #2E2E2E">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="title" style="color: white"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                     <h5 class="modal-title" id="title" style="color: white"></h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
                   </div>
                   <div class="modal-body">
-                    <p id="text" style="color: white"></p>
+                     <p id="text" style="color: white"></p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
-          <div class="col-xs-4 offset-xs-6 col-md-4 offset-md-5">
+         </div>
+         <div class="col-xs-4 offset-xs-6 col-md-4 offset-md-5">
             <div class="dropdown">
-                <button style="background-color: #363636" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select category
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="cat" style="background-color: #363636;">
+               <button style="background-color: #363636" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Select category
+               </button>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="cat" style="background-color: #363636;">
                   <a class="dropdown-item" href="/backgrounds">Default</a>
-                </div>
-              </div>
-              </div>
-              <br>
-            <div class="col-xs-8 col-md-8 offset-md-2" id="jeff">
-                  
+               </div>
             </div>
-</div>
-  </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/front/js/bootstrap.min.js"></script>
-    <script>
-            function setUser() {
-              if (localStorage.getItem('logged') === 'true')
-              document.getElementById('login').outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
-    }
-    </script>
-            <script>
-                (function() {
-                    let logged = localStorage.getItem('username')
-                    let categories = [];
-                    let backgrounds = [];
-                            var d = "";
-                            var search = new URLSearchParams(window.location.search).get('cat');
-                  $.getJSON('/front//js/shop.json' , {
-                    format: "json"
-                  })
-                    .done(function( data ) {
-                        $.each( data,  function(i, e) {
-                            if (!categories.includes(e.meta.c))
-                            categories.push(e.meta.c);
-                        });
-                        let cats = "";
-                            categories.forEach(function(cat) {
-                              cats += `<a class="dropdown-item" href="?cat=${cat}">${cat}</a>`;
-                            });
-                            document.getElementById("cat").innerHTML += cats;
-                            var i = 0;
-                        if (!search) {
-                      $.each( data, function( g, item ) {
-                        if (item.type === 'background') {
-                          if (i % 2 == 0) {
-                            d += document.getElementById("jeff").innerHTML + `
-                            <div class="card-group">
-                    <div class="card">
-                      <img class="card-img-top" src="/front//assets/backgrounds/${g}.png">
-                      <div class="card-body">
-                        <h5 class="card-title">${g}</h5>
-                        <p class="card-text">Costs: ${item.price} credits.</p>
-                        <p class="card-text">Original art: <a href = "${item.oc.url}">${item.oc.name}</a>.</p>
-                        <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${g}')">Equip background</button>
-                      </div>
-                    </div>`
-                          } else {
-                        d += document.getElementById("jeff").innerHTML + `
-                        <div class="card">
-                      <img class="card-img-top" src="/front//assets/backgrounds/${g}.png">
-                      <div class="card-body">
-                        <h5 class="card-title">${g}</h5>
-                        <p class="card-text">Costs: ${item.price} credits.</p>
-                        <p class="card-text">Original art: <a href = "${item.oc.url}">${item.oc.name}</a>.</p>
-                        <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${g}')">Equip background</button>
-                      </div>
-                    </div>
-                    </div>`
-                        }
-                        i++;
-                        }
-                    });
-                      } else {
-                        let catArray = [];
-                          getCat(data, search, catArray);
-                
-                          catArray.forEach((item) => {
-                            if (i % 2 == 0) {
-                              d += document.getElementById("jeff").innerHTML + `
-                            <div class="card-group">
-                    <div class="card">
-                      <img class="card-img-top" src="/front//assets/backgrounds/${item.name}.png">
-                      <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">Costs: ${item.price} credits.</p>
-                        <p class="card-text">Original art: <a href = "${item.oc.url}">${item.oc.name}</a>.</p>
-                        <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${item.name}')">Equip background</button>
-                      </div>
-                    </div>`
-                            } else {
-                              d += document.getElementById("jeff").innerHTML + `
-                        <div class="card">
-                      <img class="card-img-top" src="/front/assets/backgrounds/${item.name}.png">
-                      <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">Costs: ${item.price} credits.</p>
-                        <p class="card-text">Original art: <a href = "${item.oc.url}">${item.oc.name}</a>.</p>
-                        <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${item.name}')">Equip background</button>
-                      </div>
-                    </div>
-                    </div>`
-                            }
-                            i++;
-                          });
-                      }
-                      document.getElementById("jeff").innerHTML = d;
-                    });
-                    
-                })();
-                function getCat(json, input, arr) {
-                  Object.keys(json).forEach((o) => {
-                    if (json[o].type === 'emblem')
-                    return;
-                    if (json[o].meta.c.toLowerCase() === input.toLowerCase())
-                      arr.push(json[o]);
-                  });
-                }
-
-
-
-                function setBackground(bg) {
-                  $.ajax({
-                    headers: {
-                      Authorization: localStorage.getItem('t')
-                    },
-                    type: 'POST',
-                    dataType: 'json',
-                    url: `/updatebackground?b=${bg}`,
-                    success: function(data) {
-                    if (data.error) {
-                      document.getElementById("title").innerHTML = "Error";
-                      document.getElementById("text").innerHTML = data.error;
-                      $("#modal").modal('show');
-                    } else if (data.success) {
-                      document.getElementById("title").innerHTML = "Success";
-                      document.getElementById("text").innerHTML = data.success;
-                      $("#modal").modal('show');
-                    }
-                  }
-                  });
-
-                };
-                        </script>
-  </body>
+         </div>
+         <br>
+         <div class="col-xs-8 col-md-8 offset-md-2" id="jeff"></div>
+      </div>
+      </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="/front/js/bootstrap.min.js"></script>
+      <script>
+         function setUser() {
+         if (localStorage.getItem('logged') === 'true')
+         document.getElementById('login').outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
+         }
+           let categories = [];
+           let backgrounds = [];
+                   var d = "";
+                   let cats = "";
+                   var search = new URLSearchParams(window.location.search).get('cat');
+                   fetch('/shop/backgrounds').then((d) => d.json()).then((data) => {
+                     data.forEach((background) => {
+                       if (!categories.includes(background.meta.c)) {
+                       categories.push(background.meta.c);
+                       cats += `<a class="dropdown-item" href="?cat=${background.meta.c}">${background.meta.c}</a>`;
+                       }
+                     });
+                     if (search)
+                     data = data.filter((bg) => bg.meta.c.toLowerCase() === search.toLowerCase());
+                     data.forEach((background, i) => {
+                       if (i % 2 == 0) {
+                   d += document.getElementById("jeff").innerHTML + `
+                   <div class="card-group">
+           <div class="card">
+             <img class="card-img-top" src="/front/assets/backgrounds/${background.name}.png">
+             <div class="card-body">
+               <h5 class="card-title">${background.name}</h5>
+               <p class="card-text">Costs: ${background.price} credits.</p>
+               <p class="card-text">Original art: <a href = "${background.oc.url}">${background.oc.name}</a>.</p>
+               <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${background.name}')">Equip background</button>
+             </div>
+           </div>`
+                 } else {
+               d += document.getElementById("jeff").innerHTML + `
+               <div class="card">
+             <img class="card-img-top" src="/front/assets/backgrounds/${background.name}.png">
+             <div class="card-body">
+               <h5 class="card-title">${background.name}</h5>
+               <p class="card-text">Costs: ${background.price} credits.</p>
+               <p class="card-text">Original art: <a href = "${background.oc.url}">${background.oc.name}</a>.</p>
+               <button class="btn btn-primary" style="background-color:#6F6F6F; border-color:#6F6F6F;" onclick="setBackground('${background.name}')">Equip background</button>
+             </div>
+           </div>
+           </div>`
+               }
+         });
+         document.getElementById("cat").innerHTML += cats;
+         document.getElementById("jeff").innerHTML = d;
+         });
+         
+         function setBackground(bg) {
+           fetch(`/updatebackground?b=${bg}`, {
+             headers: {
+              Authorization: localStorage.getItem('t')
+             },
+             method: 'POST'
+           }).then((d) => d.json()).then((data) => {
+            if (data.error) {
+             document.getElementById("title").innerHTML = "Error";
+             document.getElementById("text").innerHTML = data.error;
+             $("#modal").modal('show');
+           } else if (data.success) {
+             document.getElementById("title").innerHTML = "Success";
+             document.getElementById("text").innerHTML = data.success;
+             $("#modal").modal('show');
+           }
+           }) 
+         };
+               
+      </script>
+   </body>
 </html>
-
