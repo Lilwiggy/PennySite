@@ -1,18 +1,9 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-  (function () {
-    $.ajax({
-      headers: {
-        Authorization: localStorage.getItem('t'),
-      },
-      type: 'GET',
-      dataType: 'json',
-      url: `/reqlogout`,
-      success: function (d) {
-        localStorage.setItem('logged', false);
-        localStorage.removeItem('t');
-        window.location.replace('https://penny.wiggy.dev');
-      },
-    });
-  })();
-</script>
+<html>
+  <body>
+    <script>
+      localStorage.setItem('logged', false);
+      localStorage.removeItem('t');
+      window.location.replace('https://penny.wiggy.dev');
+    </script>
+  </body>
+</html>
