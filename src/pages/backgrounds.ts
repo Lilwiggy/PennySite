@@ -1,4 +1,3 @@
-import url from 'url';
 import { Request, Response } from 'express';
 import { items, ItemInfo } from './../modules/shop';
 exports.run = async (req: Request, res: Response) => {
