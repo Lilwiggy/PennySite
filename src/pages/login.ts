@@ -17,7 +17,7 @@ exports.run = async (
     client_secret: config.client_secret,
     grant_type: 'authorization_code',
     code: params.code,
-    redirect_uri: 'http://localhost:6969/login',
+    redirect_uri: 'https://penny.wiggy/login',
   });
   let json = await fetch(`https://discordapp.com/api/oauth2/token`, {
     headers: {
