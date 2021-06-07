@@ -92,12 +92,31 @@
     <script id="replace">
     </script>
     <script>
-      if (!localStorage.getItem('username'))
-      window.location.replace('https://discordapp.com/oauth2/authorize?client_id=309531399789215744&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin&response_type=code&scope=identify%20guilds.join');
-          function fillProfile() {
-          document.getElementById('username').innerHTML = localStorage.getItem('username');
-          document.getElementById('avatar').src = localStorage.getItem('avatar');
+      function generateRandomString() {
+        let randomString = '';
+        const randomNumber = Math.floor(Math.random() * 10);
+
+        for (let i = 0; i < 20 + randomNumber; i++) {
+          randomString += String.fromCharCode(
+            33 + Math.floor(Math.random() * 94)
+          );
         }
+
+        return randomString;
+      }
+      function setUser() {
+        if (localStorage.getItem('logged') === 'true')
+          document.getElementById(
+            'login'
+          ).outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
+        else
+          document.getElementById('login').children[0].href += `&state=${btoa(
+            JSON.stringify({
+              state: generateRandomString(),
+              uri: window.location.href,
+            })
+          )}`;
+      }
     </script>
   </body>
 </html>
