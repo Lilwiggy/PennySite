@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { items, ItemInfo } from './../modules/shop';
+import { items, ItemInfo } from '../../modules/shop';
 exports.run = async (req: Request, res: Response) => {
   // Fetch all backgrounds
   let shopItems = Object.keys(items);

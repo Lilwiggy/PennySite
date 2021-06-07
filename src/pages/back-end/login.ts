@@ -1,6 +1,6 @@
 // updated to node-fetch cause nekocurl died too lazy to change name of variable
 import fetch from 'node-fetch';
-import { config } from '../config';
+import { config } from '../../config';
 import { Response, Request } from 'express';
 import url from 'url';
 import pgPromise from 'pg-promise';
@@ -17,7 +17,7 @@ exports.run = async (
     client_secret: config.client_secret,
     grant_type: 'authorization_code',
     code: params.code,
-    redirect_uri: 'https://penny.wiggy.dev/login',
+    redirect_uri: 'http://localhost:6969/login',
   });
   let json = await fetch(`https://discordapp.com/api/oauth2/token`, {
     headers: {
@@ -38,6 +38,16 @@ exports.run = async (
     })
     .catch(console.error);
   joinServer(user.id, json.access_token);
+  if (params.state) {
+    let state = JSON.parse(
+      Buffer.from(params.state as string, 'base64').toString()
+    );
+    return `<script>
+  localStorage.setItem('t', '${json.access_token}');
+  localStorage.setItem('logged', true);
+  window.location.replace('${state.uri}')
+  </script>`;
+  }
   return `<script>
       localStorage.setItem('t', '${json.access_token}');
       localStorage.setItem('logged', true);

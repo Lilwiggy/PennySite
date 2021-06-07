@@ -1,9 +1,9 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
-import { config } from './../config';
+import { config } from '../../config';
 import { Response, Request } from 'express';
 import pgPromise from 'pg-promise';
-import { replaceItems } from '../modules/functions';
+import { replaceItems } from '../../modules/functions';
 exports.run = async (
   req: Request,
   res: Response,

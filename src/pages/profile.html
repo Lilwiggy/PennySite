@@ -167,6 +167,34 @@
     <script src="/front/js/bootstrap.min.js"></script>
     <script id="replace"></script>
     <script>
+              function generateRandomString() {
+        let randomString = '';
+        const randomNumber = Math.floor(Math.random() * 10);
+
+        for (let i = 0; i < 20 + randomNumber; i++) {
+          randomString += String.fromCharCode(
+            33 + Math.floor(Math.random() * 94)
+          );
+        }
+
+        return randomString;
+      }
+      function setUser() {
+        if (localStorage.getItem('logged') === 'true') {
+          document.getElementById(
+            'login'
+          ).outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
+        }
+        else {
+          document.getElementById('login').children[0].href += `&state=${btoa(
+            JSON.stringify({
+              state: generateRandomString(),
+              uri: window.location.href,
+            })
+          )}`;
+          window.location.replace(document.getElementById('login').children[0].href)
+        }
+      }
       fetch('/userprofile', {
         headers: {
           Authorization: localStorage.getItem('t'),
@@ -210,28 +238,6 @@
         .catch(() => {
           document.body.style.display = '';
         });
-      function setUser() {
-        if (localStorage.getItem('logged') === 'true')
-          document.getElementById(
-            'login'
-          ).outerHTML = `<a class="nav-link active" href="/profile">Profile</a>`;
-      }
-
-      function getCookie(cname) {
-        var name = cname + '=';
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return '';
-      }
     </script>
   </body>
 </html>

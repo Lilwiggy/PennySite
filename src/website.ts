@@ -25,7 +25,7 @@ fs.readdir('./src/pages', (err, res) => {
     );
   });
 });
-fs.readdir('./src/out/pages', (err, res) => {
+fs.readdir('./src/out/pages/back-end', (err, res) => {
   if (err) {
     console.log(err);
     return;
@@ -33,7 +33,7 @@ fs.readdir('./src/out/pages', (err, res) => {
   res.forEach((page) => {
     if (!page.endsWith('.js')) return;
     try {
-      let props = require(`./pages/${page}`);
+      let props = require(`./pages/back-end/${page}`);
       switch (props.meta.type) {
         case 'get':
           app.get(`/${props.meta.name}`, async (req, r) => {

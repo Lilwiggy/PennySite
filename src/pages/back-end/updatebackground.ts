@@ -3,8 +3,8 @@ import url from 'url';
 import fs from 'fs';
 import { Request, Response } from 'express';
 import pgPromise from 'pg-promise';
-import { items } from './../modules/shop';
-import { replaceItems } from '../modules/functions';
+import { items } from '../../modules/shop';
+import { replaceItems } from '../../modules/functions';
 exports.run = async (
   req: Request,
   res: Response,
