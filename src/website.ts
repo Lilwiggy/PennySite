@@ -10,22 +10,30 @@ const pgp = pgPromise();
 const con: IBaseProtocol<{}> = pgp(
   `postgres://${config.sql.username}:${config.sql.password}@${config.sql.host}/${config.sql.db_name}`
 );
-fs.readdir(path.join(`${path.join(__dirname)}/../pages/front`), (err, res) => {
+fs.readdir('./pages', (err, res) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
   res.forEach((page) => {
     if (!page.endsWith('.html')) return;
     app.get('/', (req, r) =>
-      r.sendFile(path.join(`${path.join(__dirname)}/../pages/front/index.html`))
+      r.sendFile(path.join(`${path.join(__dirname)}/../pages/index.html`))
     );
     app.get('/' + page.split('.')[0], (req, r) =>
-      r.sendFile(path.resolve(path.join(__dirname) + `/../pages/front/${page}`))
+      r.sendFile(path.resolve(path.join(__dirname) + `/../pages/${page}`))
     );
   });
 });
-fs.readdir(path.join(`${path.join(__dirname)}/pages/back`), (err, res) => {
+fs.readdir('./out/pages', (err, res) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
   res.forEach((page) => {
     if (!page.endsWith('.js')) return;
     try {
-      let props = require(`./pages/back/${page}`);
+      let props = require(`./pages/${page}`);
       switch (props.meta.type) {
         case 'get':
           app.get(`/${props.meta.name}`, async (req, r) => {
